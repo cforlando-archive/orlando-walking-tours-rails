@@ -1,3 +1,11 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.alert-notice {
+  @extend .alert-warning;
+}
+
+.alert-error {
+  @extend .alert-danger;
+}
