@@ -4,23 +4,9 @@
 
 .container-fluid
   .col-md-3
-    %h3 Filter
+    %h3 At a Glance
     .well
-      %ul.nav.nav-pills.nav-stacked
-        %li.active
-          %a{:href => ""}
-            All
-            %span.badge 24
-        %li
-          %a{:href => ""}
-            Buildings
-            %span.badge 20
-        %li
-          %a{:href => ""}
-            Signs
-            %span.badge 4
-    .well
-      %h3#title Select a Landmark for more info
+      %h4#title Select a Landmark for more info
       #description
       %br
         %button.btn.btn-primary.hidden.add-to-tour Add To My Tour
@@ -33,8 +19,8 @@
     %h3 My Tour
     .well
       %button.btn.btn-primary.btn-sm
-        %i.glyphicon.glyphicon-map-marker
-        Map My Path
+        %i.glyphicon.glyphicon-print
+        Print My Tour
       %button.btn.btn-primary.btn-sm
         %i.glyphicon.glyphicon-phone
         Send to Phone
