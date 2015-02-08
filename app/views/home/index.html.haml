@@ -28,62 +28,7 @@
       %ul#tour-list.list-group
 :javascript
   $(window).load(function() {
-
-    $('#tour-list').sortable();
-    $(document).on('click', '.glyphicon-remove', function(){
-      $(this).parent().remove();
-    });
-
-    $(document).on('click', '.add-to-tour', function() {
-      $('#tour-list').append('<li class="list-group-item"">'+$(this).data('name')+' ');
-      var marker = new google.maps.Marker({
-          position: new google.maps.LatLng($(this).data('latitude'),
-                                           $(this).data('longitude')),
-          map: user_map,
-          title: $(this).data('name')
-      });
-    });
-
-
-      var infowindow = new google.maps.InfoWindow({});
-      // Construct the catalog query string
-      url = 'https://brigades.opendatanetwork.com/resource/hzkr-id6u.json';
-
-      // Intialize our map
-      // 28.4158° N, 81.2989° W
-      var center = new google.maps.LatLng(28.5558, -81.3789);
-      var mapOptions = {
-        zoom: 13,
-        center: center
-      }
-      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-      var user_map = new google.maps.Map(document.getElementById("user_map"), mapOptions);
-
-      // Retrieve our data and plot it
-      $.getJSON(url, function(data, textstatus) {
-            $.each(data, function(i, entry) {
-
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(entry.location.latitude,
-                                                     entry.location.longitude),
-                    map: map,
-                    title: entry.name
-                });
-
-                // Adding a click event to the marker
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.setContent(entry.name+'<p><a data-name="'+entry.name+'" data-logitude="'+entry.location.longitude+'" data-latitude="'+entry.location.latitude+'" class="btn btn-primary btn-sm add-to-tour">Add To My Tour</a></p>');
-                    infowindow.open(map, this);
-                    $('#title').text('').text(entry.name);
-                    $('#description').text('Bacon ipsum dolor amet beef ribs tail spare ribs, doner salami short ribs kevin kielbasa meatloaf. Turkey jowl cupim ground round sirloin. Short loin ham pork capicola shankle. Tri-tip prosciutto shankle, sausage bresaola turkey meatloaf andouille tenderloin beef ribs boudin. Ham beef brisket chuck leberkas pork loin.').text(entry.downtown_walking_tour);
-                    $('.add-to-tour').
-                      data('name', entry.name).
-                      data('longitude', entry.location.longitude).
-                      data('latitude', entry.location.latitude).
-                      removeClass('hidden');
-                });
-            });
-      });
+    OWT.Tour.init();
   });
 
 :css
