@@ -3,7 +3,7 @@ class CreateTours < ActiveRecord::Migration
     create_table :tours do |t|
       t.integer :user_id, null: false
       t.string :name, null: false
-      t.json :data, default: {}
+      t.json :data, default: []
     end
   end
 end

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150208171619) do
   create_table "tours", force: :cascade do |t|
     t.integer "user_id",              null: false
     t.string  "name",                 null: false
-    t.json    "data",    default: {}
+    t.json    "data",    default: []
   end
 
   create_table "users", force: :cascade do |t|
