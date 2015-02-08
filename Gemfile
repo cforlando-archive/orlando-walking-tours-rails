@@ -14,8 +14,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'haml'
-gem 'haml-rails'
+gem 'haml', '~> 4.0.6'
+gem 'haml-rails', '~> 0.8.2'
+
+gem 'bootstrap-sass', '~> 3.3.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
