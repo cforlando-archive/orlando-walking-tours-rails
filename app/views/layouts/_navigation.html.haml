@@ -29,11 +29,11 @@
             %li
               %a{:href => "#"} One more separated link
       %ul.nav.navbar-nav.navbar-right
-        %li
-          %a{:href => "#"} Login
-      %form.navbar-form.navbar-right{:role => "search"}
-        .form-group
-          %input.form-control{:placeholder => "Search", :type => "text"}
-        %button.btn.btn-default{:type => "submit"} Search
-    / /.navbar-collapse
-  / /.container-fluid
+        - if user_signed_in?
+          %li
+            = link_to 'Sign Out', destroy_user_session_path, method: :delete
+        - else
+          %li
+            = link_to 'Register', new_user_registration_path
+          %li
+            = link_to 'Login', new_user_session_path
