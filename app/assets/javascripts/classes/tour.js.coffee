@@ -4,6 +4,7 @@
   _options = {}
   _userMap = {}
   _markers = []
+  _tourData = []
 
   init = (options) ->
     _options = $.extend
@@ -41,6 +42,10 @@
       new (google.maps.LatLng)(_options.position_latitude, _options.position_longitude)
     )
 
+    $.get '/tour.json', (data) ->
+      _tourData = data.data
+
+
   addStop = (elem) ->
     marker = new (google.maps.Marker)(
       position: new (google.maps.LatLng)($(elem).data('latitude'), $(elem).data('longitude'))
@@ -48,6 +53,16 @@
       title: $(elem).data('name'))
     index = _markers.push(marker) - 1
     _options.tour_list.append '<li class="list-group-item" data-marker-id="'+index+'"><i class="glyphicon glyphicon-remove"></i> ' + $(elem).data('name') + '</li>'
+    _tourData.push($(elem).data('name'))
+    $.ajax '/tour.json',
+      data:
+        tour:
+          data: _tourData
+      method: "put"
+      success: (data) ->
+        # TODO: verify that data is being set on tour correctly
+
+
 
   removeStop = (elem) ->
     item = $(elem).parent()
