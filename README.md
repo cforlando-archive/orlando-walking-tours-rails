@@ -12,7 +12,7 @@
   brew install postgresql
   ```
 
-- Ruby 2.20 (rbenv recommended)
+- Ruby 2.2.0 (rbenv recommended)
 
   ```
   brew update
