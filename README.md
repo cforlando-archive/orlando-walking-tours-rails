@@ -37,6 +37,7 @@
 3. Set up your database configuration
 
   ```
+  cd config
   cp database.example.yml database.yml
   ```
 
