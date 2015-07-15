@@ -7,9 +7,9 @@ defaults: &defaults
   password: <your_password_or_remove_this_entire_entry_if_you_dont_have_one>
 
 development:
-  <<: *default
+  <<: *defaults
   database: orlando-walking-tours-rails_development
 
 test:
-  <<: *default
+  <<: *defaults
   database: orlando-walking-tours-rails_test
